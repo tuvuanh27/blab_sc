@@ -51,20 +51,4 @@ contract IoTDeviceManager {
         uint256 _timestamp = block.timestamp;
         temperatureReadings[_deviceID][_timestamp] = _temperature;
     }
-
-    // function to get temperature reading
-    function getTemperatureReading(string memory _deviceID, uint256 _timestamp) public view returns (uint256) {
-        return temperatureReadings[_deviceID][_timestamp];
-    }
-
-    // function to get temperature reading
-    function getTemperatureDevice(string memory _deviceID) public view returns (uint256[] memory, uint256[] memory) {
-        uint256[] memory timestamps;
-        uint256[] memory temperatures;
-        for (uint256 i = 0; i < 10; i++) {
-            timestamps[i] = i;
-            temperatures[i] = temperatureReadings[_deviceID][i];
-        }
-        return (timestamps, temperatures);
-    }
 }

@@ -11,7 +11,7 @@ const contract = new ethers.Contract(
   abi.abi,
   provider
 );
-const deviceId = "test_device";
+const deviceId = "test_device" + Math.floor(Math.random() * 1000);
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
 async function main() {
@@ -32,7 +32,7 @@ async function main() {
       .addTemperatureReading(deviceId, randomTemperature);
 
     console.log("Data sent:", sendData);
-  }, 300000);
+  }, 3600000);
 }
 
 main();
